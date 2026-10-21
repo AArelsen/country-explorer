@@ -1,0 +1,28 @@
+.header{
+    background-color: #ffffff;
+    border-bottom: 1px solid #dbe3ee;
+}
+
+.inner{
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+}
+
+.logo{
+    color: #174ea6;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo:focus-visible{
+    border-radius: 0.25rem;
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
