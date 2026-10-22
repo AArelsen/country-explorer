@@ -1,0 +1,37 @@
+.footer{
+    padding: 1.5rem;
+    background-color: #172033;
+    color: #ffffff;
+}
+
+.inner{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+}
+
+.inner p {
+    margin: 0;
+    }    
+
+.link{
+    color: #93c5fd;
+    text-underline-offset: 0.2rem;
+}
+
+.link:hover{
+    color: #ffffff;
+}
+
+.link:focus-visible{
+    border-radius: 0.25rem;
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+
+
