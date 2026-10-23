@@ -1,0 +1,73 @@
+.intro{
+    padding: clamp(2rem, 5vw, 4rem);
+    background-color: #dbeafe;
+    border-radius: 1rem;
+}
+
+.eyebrow{
+    margin: 0 0 0.5rem;
+    color: #1d4ed8;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.title{
+    margin: 0 auto;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.introText{
+    max-width: 42rem;
+    margin: 1.5rem auto 0;
+    font-size: 1.125rem;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.card{
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #dbe3fe;
+    border-radius: 0.75rem;
+}
+
+.card h2{
+    margin-top: 0;
+    color: #1d4ed8;
+}
+
+.card p {
+    margin-bottom: 0;
+}
+
+.link{
+    display: inline-block;
+    margin-top: 1rem;
+    color: #1d4ed8;
+    font-weight: 700;
+    text-decoration: 0.2rem;
+}
+
+.link:hover{
+    color: #1e3a8a;
+}
+
+.link:focus-visible{
+    border-radius: 0.25rem;
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+@media(max-width: 48rem){
+    .content{
+        grid-template-columns: 1fr;
+    }
+}
