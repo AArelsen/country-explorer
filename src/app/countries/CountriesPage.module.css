@@ -1,0 +1,30 @@
+.intro{
+    margin-bottom: 2rem;
+}
+
+.eyebrow{
+    margin: 0 0 0.5rem;
+    color: #1d4ed8;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.title{
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.resultCount{
+    margin: 1rem 0 0;
+    color: #475569;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1.5rem;
+}
