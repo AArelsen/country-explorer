@@ -44,3 +44,30 @@
 .detail dd{
     margin: 0;
 }
+
+.link{
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 0.75rem;
+}
+
+.link:focus-visible{
+    position: relative;
+    z-index: 1;
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+.card{
+    height: 100%;
+    transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.link:hover .card{
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.75rem 1.5rem rgb(23 32 51 / 15%);
+}
