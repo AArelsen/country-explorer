@@ -22,7 +22,7 @@ interface RestCountry{
         official: string;
     };
     codes:{
-        alpha_3: string;
+        alpha_3?: string;
     };
     capitals?: Array<{
         name: string;
@@ -65,7 +65,7 @@ function mapRestCountry(country: RestCountry): Country{
             common: country.names.common,
             official: country.names.official,
         },
-        cca3: country.codes.alpha_3,
+        cca3: country.codes.alpha_3 ?? "",
         capital: country.capitals?.map(
             (capital)=> capital.name,
         ),
@@ -124,6 +124,7 @@ export async function getCountries(): Promise<Country[]>{
     }
 
     return countries
+        .filter((country) => Boolean(country.codes.alpha_3))
         .map(mapRestCountry)
         .sort((firstCountry, secondCountry) => 
             firstCountry.name.common.localeCompare(

@@ -1,0 +1,45 @@
+.controls{
+    display: grid;
+    gap: 0.5rem;
+    max-width: 32rem;
+    margin-bottom: 1rem;
+}
+
+.controls label {
+    font-weight: 700;
+}
+
+.controls input{
+    min-height: 2.75rem;
+    padding: 0.65rem 0.75rem;
+    background-color: #ffffff;
+    color: #172033;
+    border: 1px solid #94a3b8;
+    border-radius: 0.5rem;
+    font: inherit;
+}
+
+.controls input:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+.resultCount {
+    margin: 0 0 1.5rem;
+    color: #475569;
+}
+
+.emptyMessage {
+    padding: 1,5rem;
+    background-color: #ffffff;
+    border: 1px solid #dbe3ef;
+    border: 1px solid #dbe3ef;
+    border-radius: 0.75rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1.5rem;    
+}

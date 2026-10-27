@@ -1,4 +1,4 @@
-import { CountryCard } from "@/components/CountryCard/CountryCard";
+import { CountryExplorer } from "@/components/CountryExplorer/CountryExplorer";
 import { getCountries } from "@/lib/countriesApi";
 import styles from "./CountriesPage.module.css";
 
@@ -7,29 +7,15 @@ export default async function CountriesPage(){
     return(
         <section>
             <header className={styles.intro}>
-
                 <p className={styles.eyebrow}>
-                Contries from the API will be shown here.
+                Discover the world
                 </p>
 
                 <h1 className={styles.title}>
                     Explore Countries
                 </h1>
-
-                <p className={styles.resultCount} >
-                    {countries.length} countries found.
-                </p>
-
             </header>
-            
-            <div className={styles.grid}>
-                {countries.map((country)=>(
-                    <CountryCard
-                        key={country.cca3}
-                        country={country}
-                    />  
-                ))}
-            </div>
+            <CountryExplorer countries={countries}/>
         </section>
     );
 }
