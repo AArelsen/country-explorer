@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    padding-block: 5rem;
+    text-align: center;
+}
+
+.container h1
+.container p {
+    margin: 0;
+}
+
+.spinner{
+    width: 3rem;
+    height: 3rem;
+    border: 0.4rem solid #dbe3ef;
+    border-top-color: #2454c6;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
