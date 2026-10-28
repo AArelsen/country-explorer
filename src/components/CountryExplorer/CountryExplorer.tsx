@@ -14,22 +14,38 @@ export function CountryExplorer({
 
 }: CountryExplorerProps) {
     const [searchTerm, setSearchTerm] = useState("");
+    
+    const [selectedRegion, setSelectedRegion] = 
+        useState("all");
+    
+    const regions = useMemo(() => {
+        return Array.from(
+            new Set(
+                countries
+                    .map((country) => country.region)
+                    .filter(Boolean),
+            ),
+        ).sort();
+    }, [countries]);
 
     const filteredCountries = useMemo(()=> {
         const normalizedSearchTerm =
             searchTerm.trim().toLowerCase();
 
-        if(!normalizedSearchTerm) {
-            return countries;
-        }
-
-        return countries.filter((country) =>
-            country.name.common
+        return countries.filter((country) => {
+            const matchesSearch = 
+                !normalizedSearchTerm || 
+                country.name.common
                 .toLowerCase()
-                .includes(normalizedSearchTerm),
-        );
-    }, [countries, searchTerm]);
-
+                .includes(normalizedSearchTerm);
+            
+            const matchesRegion =
+                selectedRegion === "all" ||
+                country.region === selectedRegion;
+            return matchesSearch && matchesRegion;
+        });
+    }, [countries, searchTerm, selectedRegion]);
+            
     return (
         <>
             <div className={styles.controls}>
@@ -46,6 +62,25 @@ export function CountryExplorer({
                     }
                     placeholder="For example, Norway"
                 />
+
+                <label htmlFor="region-filter">
+                    Filter by region
+                </label>
+                <select 
+                    id="region-filter"
+                    value={selectedRegion}
+                    onChange={(event) =>
+                        setSelectedRegion(event.target.value)
+                    }
+                >
+                    <option value="all">All regions</option>
+
+                    {regions.map((region) =>(
+                        <option key={region} value={region}>
+                            {region}
+                        </option>
+                    ))}
+                </select>
             </div>
 
             <p 
