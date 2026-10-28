@@ -80,6 +80,17 @@ export function CountryExplorer({
                 );
             }
         }, [filteredCountries, sortOption]);
+
+    const filtersAreReset = 
+        searchTerm === "" &&
+        selectedRegion === "all" &&
+        sortOption === "name-asc";    
+
+    function resetFilters(){
+        setSearchTerm("");
+        setSelectedRegion("all");
+        setSortOption("naem-asc");
+    }
             
     return (
         <>
@@ -137,6 +148,15 @@ export function CountryExplorer({
                         Population: low to high
                     </option>
                 </select>
+
+                <button 
+                    className={styles.resetButton}
+                    type="button"
+                    onClick={resetFilters}
+                    disabled={filtersAreReset}
+                >
+                    Reset filters
+                </button>
 
             </div>
 
