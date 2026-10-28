@@ -17,6 +17,9 @@ export function CountryExplorer({
     
     const [selectedRegion, setSelectedRegion] = 
         useState("all");
+
+    const [sortOption, setSortOption] =
+        useState("name-asc");   
     
     const regions = useMemo(() => {
         return Array.from(
@@ -45,6 +48,38 @@ export function CountryExplorer({
             return matchesSearch && matchesRegion;
         });
     }, [countries, searchTerm, selectedRegion]);
+
+    const sortedCountries = useMemo(() => {
+        const countriesToSort = [...filteredCountries];
+
+        switch(sortOption){
+            case "name-desc":
+                return countriesToSort.sort((first, second) =>
+                    second.name.common.localeCompare(
+                        first.name.common,
+                    ),
+                );
+
+            case "population-asc":
+                return countriesToSort.sort(
+                    (first, second) =>
+                        first.population - second.population,
+                );
+
+            case "population-desc":
+                return countriesToSort.sort(
+                    (first, second) =>
+                        second.population - first.population,
+                );
+            
+            default:
+                return countriesToSort.sort((first, second) =>
+                    first.name.common.localeCompare(
+                        second.name.common,
+                    ),
+                );
+            }
+        }, [filteredCountries, sortOption]);
             
     return (
         <>
@@ -81,26 +116,48 @@ export function CountryExplorer({
                         </option>
                     ))}
                 </select>
+                
+                <label htmlFor="country-sort">
+                    Sort Countries
+                </label>
+
+                <select
+                    id="country-sort"
+                    value={sortOption}
+                    onChange={(event) =>
+                        setSortOption(event.target.value)
+                    }
+                >
+                    <option value="name-asc">Name : A-Z</option>
+                    <option value= "name-desc">Name : Z-A</option>
+                    <option value="population-desc">
+                        Population: high to low
+                    </option>
+                    <option value="population-asc">
+                        Population: low to high
+                    </option>
+                </select>
+
             </div>
 
             <p 
                 className={styles.resultCount}
                 aria-live="polite"
             >
-                {filteredCountries.length} {" "}
-                {filteredCountries.length === 1
+                {sortedCountries.length} {" "}
+                {sortedCountries.length === 1
                     ? "country"
                     : "countries"}{" "}
                 found
             </p>
 
-            {filteredCountries.length ===0 ? (
+            {sortedCountries.length ===0 ? (
                 <p className={styles.emptyMessage}>
                     No countries match your search.
                 </p>
             ) : ( 
                 <div className={styles.grid}>
-                    {filteredCountries.map((country)=> (
+                    {sortedCountries.map((country)=> (
                         <CountryCard
                             key={`${country.cca3}-${country.name.common}`}
                             country={country}
