@@ -9,7 +9,8 @@
     font-weight: 700;
 }
 
-.controls input{
+.controls input,
+.controls select {
     min-height: 2.75rem;
     padding: 0.65rem 0.75rem;
     background-color: #ffffff;
@@ -19,7 +20,8 @@
     font: inherit;
 }
 
-.controls input:focus-visible {
+.controls input:focus-visible 
+.controls select:focus-visible {
     outline: 3px solid #f59e0b;
     outline-offset: 2px;
 }
