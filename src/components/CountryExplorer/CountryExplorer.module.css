@@ -45,3 +45,29 @@
         repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
     gap: 1.5rem;    
 }
+
+.resetButton{
+    align-self: end;
+    min-height: 2.75rem;
+    padding: 0.65rem 1rem;
+    color: #ffffff;
+    background-color: #2454c6;
+    border: 0;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.resetButton:hover:not(:disabled){
+    background-color: #193e98;
+}
+
+.resetButton:focus-visible{
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+.resetButton.disabled{
+    cursor: not-allowed;
+    opacity: 0.5;
+}
