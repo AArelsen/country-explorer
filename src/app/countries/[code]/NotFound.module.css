@@ -1,0 +1,45 @@
+.container{
+    max-width: 40rem;
+    margin-inline: auto;
+    padding: 3rem;
+    background-color: #ffffff;
+    border: 1px solid #dbe3ef;
+    border-radius: 0.75rem;
+    box-shadow: 0.05rem 1.5rem rgb(23 32 51 / 10%);
+    text-align: center;
+}
+
+.container h1 {
+    margin-block: 0.5rem 1rem;
+}
+
+.container p {
+   margin-block: 0 1.5rem;
+}
+
+.eyebrow{
+    color: #b91c1c;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+
+.link{
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: #ffffff;
+    background-color: #2454c6;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.link:hover{
+    background-color: #193e98;
+}
+
+.link:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
