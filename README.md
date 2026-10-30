@@ -64,9 +64,14 @@ npm install
 
 ## Konfigurasjon
 
-Opprett en fil som heter `.env.local` i rotmappen.
+## Konfigurasjon
 
-Legg inn API-nøkkelen:
+Prosjektet krever en API-nøkkel fra REST Countries.
+
+1. Gå til [REST Countries](https://restcountries.com/).
+2. Opprett en konto og generer en API-nøkkel ved å følge instruksjonene hos API-leverandøren.
+3. Opprett en fil som heter `.env.local` i rotmappen.
+4. Legg API-nøkkelen inn slik:
 
 ```env
 REST_COUNTRIES_API_KEY=din_api_nøkkel
