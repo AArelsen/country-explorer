@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Country Explorer
 
-## Getting Started
+Country Explorer er et nettsted laget med Next.js og TypeScript. Nettstedet gjør det mulig å utforske land fra hele verden og finne informasjon om blant annet hovedstad, region, befolkning, språk og valuta.
 
-First, run the development server:
+Prosjektet er utviklet som delinnlevering 2 i arbeidskravet for Next.js og TypeScript.
+
+## Målgruppe
+
+Nettstedet er laget for brukere som ønsker en enkel og oversiktlig måte å finne grunnleggende informasjon om ulike land.
+
+## Funksjonalitet
+
+- Viser land hentet fra et eksternt API.
+- Viser hvert land som et eget gjenbrukbart kort.
+- Har dynamiske detaljsider for hvert land.
+- Lar brukeren søke etter land basert på navn.
+- Lar brukeren filtrere land etter region.
+- Lar brukeren sortere etter navn eller befolkning.
+- Har en knapp for å nullstille søk, filter og sortering.
+- Viser en forståelig melding når søket ikke gir treff.
+- Håndterer ugyldige landkoder med en egen ikke-funnet-side.
+- Håndterer lasting og feil ved datainnhenting.
+- Har responsivt design for mobil og større skjermer.
+- Kan navigeres med tastatur og har synlig fokusmarkering.
+
+## Teknologier
+
+- Next.js
+- React
+- TypeScript
+- CSS Modules
+- REST Countries API
+- Git og GitHub
+
+## Datakilde
+
+Prosjektet bruker REST Countries API v5:
+
+```text
+https://api.restcountries.com/countries/v5
+```
+
+API-et krever en API-nøkkel. Nøkkelen sendes som en Bearer-token fra serversiden og blir ikke gjort tilgjengelig i klientkoden.
+
+## Installasjon
+
+Klon repositoryet:
+
+```bash
+git clone https://github.com/AArelsen/country-explorer.git
+```
+
+Gå inn i prosjektmappen:
+
+```bash
+cd country-explorer
+```
+
+Installer avhengighetene:
+
+```bash
+npm install
+```
+
+## Konfigurasjon
+
+Opprett en fil som heter `.env.local` i rotmappen.
+
+Legg inn API-nøkkelen:
+
+```env
+REST_COUNTRIES_API_KEY=din_api_nøkkel
+```
+
+Filen `.env.local` skal ikke legges i Git. Repositoryet inneholder en `.env.example` som viser hvilken variabel som må konfigureres.
+
+## Starte prosjektet
+
+Start utviklingsserveren:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Åpne følgende adresse i nettleseren:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Bygge prosjektet
 
-## Learn More
+Kontroller at prosjektet kan bygges:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start den ferdig bygde versjonen:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm start
+```
 
-## Deploy on Vercel
+## Sider
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/` – forside
+- `/countries` – oversikt over land
+- `/countries/[code]` – detaljside for et valgt land
+- `/about` – informasjon om nettstedet, datakilden og utvikleren
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Kjent begrensning
+
+Nettstedet er avhengig av at REST Countries API er tilgjengelig og at en gyldig API-nøkkel er konfigurert. Enkelte land kan ha manglende opplysninger i API-et. Nettstedet viser derfor alternative tekster når enkelte data ikke er tilgjengelige.
+
+## Utvikler
+
+Laget av Adam Arelsen.
